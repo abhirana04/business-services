@@ -418,6 +418,7 @@ public class DemandService {
 			            if ("WS_ADVANCE_CARRYFORWARD".equals(d123.getTaxHeadMasterCode())) 
 			            {
 			            	finalsadvance = d123.getTaxAmount().intValue();
+					    ispaymentcompleted=true;
 			            	
 
 			            }
