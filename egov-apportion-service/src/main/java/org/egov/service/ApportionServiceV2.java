@@ -159,7 +159,11 @@ public class ApportionServiceV2 {
         * has same businessService and consumerCode
         * */
         String businessKey = demands.get(0).getBusinessService();
-
+        String tenant = demands.get(0).getTenantId();
+        if (apportionRequestV2.getTenantid()=="" || apportionRequestV2.getTenantid()==null)
+        {
+        	apportionRequestV2.setTenantid(tenant);
+        }
         if (isApportionPresent(businessKey))
             apportion = getApportion(businessKey);
         else
