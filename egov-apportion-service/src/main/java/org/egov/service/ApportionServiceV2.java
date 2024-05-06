@@ -162,6 +162,11 @@ public class ApportionServiceV2 {
 
         if (isApportionPresent(businessKey))
             apportion = getApportion(businessKey);
+         String tenant = demands.get(0).getTenantId();
+        if (apportionRequestV2.getTenantid()=="" || apportionRequestV2.getTenantid()==null)
+        {
+        	apportionRequestV2.setTenantid(tenant);
+        }
         else
             apportion = getApportion(DEFAULT);
 
