@@ -99,6 +99,7 @@ public class ApportionServiceV2 {
              */
 
             ApportionRequestV2 apportionRequestV2 = translationService.translate(bill);
+            apportionRequestV2.setTenantid(request.getTenantId());
             List<TaxDetail> taxDetails = apportion.apportionPaidAmount(apportionRequestV2, masterData);
             updateAdjustedAmountInBills(bill,taxDetails);
             addAdvanceIfExistForBill(billDetails,taxDetails);
