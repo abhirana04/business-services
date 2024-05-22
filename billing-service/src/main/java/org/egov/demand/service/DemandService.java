@@ -394,7 +394,7 @@ public class DemandService {
 			List<DemandDetail> newdemandDetail = demand.getDemandDetails();
 			 for (DemandDetail demandDetailnew : newdemandDetail) 
 		        {
-		            if ("WS_CHARGE".equals(demandDetailnew.getTaxHeadMasterCode())) 
+		            if ("WS_CHARGE".equals(demandDetailnew.getTaxHeadMasterCode()) || "SW_CHARGE".equals(demandDetailnew.getTaxHeadMasterCode())) 
 		            {
 		            	taxamnt= demandDetailnew.getTaxAmount().intValue();
 
@@ -416,7 +416,7 @@ public class DemandService {
 			        List<DemandDetail> d12 = d1.getDemandDetails();
 			        for (DemandDetail d123 : d12) 
 			        {
-			            if ("WS_ADVANCE_CARRYFORWARD".equals(d123.getTaxHeadMasterCode())) 
+			            if ("WS_ADVANCE_CARRYFORWARD".equals(d123.getTaxHeadMasterCode()) || "SW_ADVANCE_CARRYFORWARD".equals(d123.getTaxHeadMasterCode())) 
 			            {
 			            	finalsadvance = d123.getTaxAmount().intValue();
 			            		if(taxamnt+finalsadvance>0)
@@ -439,7 +439,7 @@ public class DemandService {
 				
 			        	if (finalsvar!=1)
 			        	{
-					       System.out.print("Settling Advcance  ");
+					      // System.out.print("Settling Advcance  ");
 					       finalsadvance = taxamnt+finalsadvance;
 					       
 					       if (finalsadvance==0)
@@ -451,7 +451,7 @@ public class DemandService {
 					       {  ispaymentcompleted=true;
 					    	   finalsvar=0;
 					       }           	
-					       System.out.println("txamt "+finalsadvance);
+					       //System.out.println("txamt "+finalsadvance);
 					            	
 					   }
 		}
@@ -462,7 +462,7 @@ public class DemandService {
 			
 			    List<DemandDetail> demandDetails23 = demand12.getDemandDetails();
 			    for (DemandDetail demandDetail45 : demandDetails23) {
-			        if ("WS_ADVANCE_CARRYFORWARD".equals(demandDetail45.getTaxHeadMasterCode())) {
+			        if ("WS_ADVANCE_CARRYFORWARD".equals(demandDetail45.getTaxHeadMasterCode()) || "SW_ADVANCE_CARRYFORWARD".equals(demandDetail45.getTaxHeadMasterCode())) {
 			        	BigDecimal tax=new BigDecimal(finalsadvance);
 			            demandDetail45.setTaxAmount(tax);
 			        }
